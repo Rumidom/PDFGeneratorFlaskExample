@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+table.Titulo{
+    font-family: arial, sans-serif;
+    width: 100%;
+}
+
+table.table1 {
+    font-family: arial, sans-serif;
+    border: 0px solid black;
+}
+
+table.table1 td, table.table1 th {
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+table.table2 {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.table2 td, table.table2 th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+table.table2 tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+
+
+<table  class="Titulo" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr >
+    <!--<td><img src="https://cdn.pbrd.co/images/HJXaSfj.png" alt="" width="191" height="64" /></td>-->
+    <th><h3><strong>Relatorio De Eventos</strong></h3></th>
+    <th style="width:38%"></th>
+  </tr>
+</table>
+    
+<table class="table1" style="width:100%">
+
+  <tr>
+    <td><strong>Data de emiss&atilde;o:</strong> {{Emitido}} </td> 
+    <td colspan="2"><strong>Periodo de averigua&ccedil;&atilde;o:</strong> {{Periodo}} </td> 
+  </tr>
+  <tr>
+    <td><strong>Cliente:</strong> Cliente 1 </td>
+    <td colspan="2"><strong>Acionamento dos Eventos:</strong> {{Acionamento}}</td>
+  </tr>
+  <tr>
+    <td><strong>Sensor:</strong>  {{NomeDoSensor}} ({{SID}}) </td>
+    <td><strong>Minimo:</strong> {{LeituraMinima}} {{ Unidade }} </td>
+    <td><strong>Maximo:</strong> {{LeituraMaxima}} {{ Unidade }} </td>
+  </tr>
+</table>    
+
+<table class="table2" width="100%" border="0"  align="center">
+  <tr>
+    <th>Data</th>
+    <th>Horario</th>
+    <th>Bateria</th>
+    <th>Leitura</th>
+  </tr>
+  {% for item in ListaDados %}
+  <tr>
+    <td>{{item[0]}}</td>
+    <td>{{item[1]}}</td>
+    <td>{{item[2]}}</td>
+    <td>{{item[3]}} {{Unidade}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
